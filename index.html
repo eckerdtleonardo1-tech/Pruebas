@@ -3,309 +3,546 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenis de Mesa | Productos y Exponentes</title>
+    <title>Tenis de Mesa | Pro Series</title>
+    <!-- Importando fuentes premium de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Paleta de colores:
-           Fondo: #f0f4f8 (Gris azulado muy claro)
-           Principal: #0A2540 (Azul oscuro profundo)
-           Acento: #E63946 (Rojo dinámico)
-           Texto: #333333
-        */
+        /* ================= VARIABLES ================= */
+        :root {
+            --bg-dark: #09090b;
+            --bg-surface: #18181b;
+            --accent-red: #ff2a2a;
+            --text-main: #f8fafc;
+            --text-muted: #a1a1aa;
+            --glass-bg: rgba(9, 9, 11, 0.7);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-            color: #333333;
+        /* ================= BASE ================= */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Encabezado y navegación */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ================= ANIMACIONES GLOBALES (REVEAL) ================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= NAVEGACIÓN GLASSMORPHISM ================= */
         header {
-            background-color: #0A2540;
-            padding: 20px 0;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
         }
 
-        .header-content {
-            max-width: 900px;
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
         }
 
-        h1 {
-            margin: 0 0 15px 0;
-            color: #ffffff;
-            font-size: 28px;
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #fff;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-red);
         }
 
         nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+            list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 25px;
+            gap: 2rem;
         }
 
         nav a {
+            color: var(--text-muted);
             text-decoration: none;
-            color: #a8b2d1;
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            padding-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-red);
+            transition: var(--transition);
         }
 
         nav a:hover {
-            color: #ffffff;
-            border-bottom: 3px solid #E63946;
+            color: #fff;
         }
 
-        /* Contenedor principal */
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        nav a:hover::after {
+            width: 100%;
         }
 
-        /* Secciones */
+        /* ================= HERO SECTION ================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(9,9,11,0.6) 0%, rgba(9,9,11,1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            animation: fadeUp 1s ease-out 0.2s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-red);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: var(--transition);
+            border: 2px solid var(--accent-red);
+            animation: fadeUp 1s ease-out 0.4s both;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            box-shadow: 0 0 20px rgba(255, 42, 42, 0.4);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ================= SECCIONES GENERALES ================= */
         section {
-            background-color: #ffffff;
-            padding: 40px;
-            margin-bottom: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            scroll-margin-top: 110px; /* Compensa la altura del header fijo */
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        h2 {
-            color: #0A2540;
-            font-size: 26px;
-            margin-top: 0;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #E63946;
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
             display: inline-block;
         }
 
-        .intro-text {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background-color: var(--accent-red);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
         }
 
-        /* Imagen destacada de la sección de inicio */
-        .hero-img {
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ================= EXPONENTES (HOVER CARDS) ================= */
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .player-card {
+            position: relative;
+            height: 450px;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .player-img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Tarjetas de contenido (Jugadores y Productos) */
-        .card {
-            display: flex;
-            background-color: #fafafa;
-            border-left: 5px solid #0A2540;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            transition: transform 0.2s;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .card:hover {
-            transform: translateX(5px);
-            border-left-color: #E63946;
-        }
-
-        /* Imágenes dentro de las tarjetas */
-        .card-img {
-            width: 120px;
-            height: 120px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 50%; /* Imágenes redondas para los jugadores */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            flex-shrink: 0; /* Evita que la imagen se deforme */
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .product-img {
-            border-radius: 8px; /* Imágenes cuadradas para productos */
+        .player-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2.5rem 1.5rem 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 60%, transparent 100%);
+            transform: translateY(45%);
+            transition: var(--transition);
         }
 
-        .card-content {
+        .player-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .player-info .country {
+            color: var(--accent-red);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .player-info p {
+            color: #ccc;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .player-card:hover .player-img {
+            transform: scale(1.1);
+        }
+
+        .player-card:hover .player-info {
+            transform: translateY(0);
+        }
+
+        .player-card:hover .player-info p {
+            opacity: 1;
+            transition-delay: 0.1s;
+        }
+
+        /* ================= PRODUCTOS (GRID MODERNO) ================= */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--bg-surface);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 42, 42, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 42, 42, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-red);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .product-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
             flex-grow: 1;
         }
 
-        .card h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 20px;
-            color: #0A2540;
-        }
-
-        .card p {
-            margin: 0;
-            font-size: 15px;
-            color: #555555;
-        }
-
-        .price {
+        .price-tag {
             display: inline-block;
-            margin-top: 12px;
+            background-color: var(--bg-dark);
+            color: var(--accent-red);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
             font-weight: 700;
-            color: #E63946;
-            font-size: 16px;
-            background-color: #ffe8ea;
-            padding: 5px 12px;
-            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            align-self: flex-start;
         }
 
-        /* Pie de página */
+        /* ================= FOOTER ================= */
         footer {
-            background-color: #0A2540;
+            background-color: #000;
+            padding: 4rem 2rem 2rem;
             text-align: center;
-            padding: 30px 20px;
-            color: #a8b2d1;
-            font-size: 14px;
-            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Adaptabilidad para móviles */
-        @media (max-width: 600px) {
-            nav ul {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .card {
-                flex-direction: column;
-                text-align: center;
-                border-left: none;
-                border-top: 5px solid #0A2540;
-                border-radius: 0 0 8px 8px;
-            }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span { color: var(--accent-red); }
 
-            .card:hover {
-                transform: translateY(-5px);
-                border-top-color: #E63946;
-            }
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .copyright {
+            color: #555;
+            font-size: 0.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            nav ul { display: none; /* Ocultamos el menú en móvil para simplificar, o podrías hacer un menú hamburguesa */ }
+            .hero h1 { font-size: 2.5rem; }
+            .player-info { transform: translateY(0); background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 70%, transparent 100%); }
+            .player-info p { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVEGACIÓN -->
     <header>
-        <div class="header-content">
-            <h1>Pasión por el Tenis de Mesa</h1>
+        <div class="nav-container">
+            <a href="#" class="logo">TT<span>Pro</span></a>
             <nav>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#exponentes">Mayores Exponentes</a></li>
-                    <li><a href="#productos">Recomendaciones</a></li>
+                    <li><a href="#exponentes">Leyendas</a></li>
+                    <li><a href="#productos">Equipamiento</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- SECCIÓN DE INICIO -->
-        <section id="inicio">
-            <h2>Bienvenido</h2>
-            <!-- Imagen destacada -->
-            <img src="https://placehold.co/900x400/0A2540/FFFFFF?text=Imagen+Destacada+Tenis+de+Mesa" alt="Mesa de tenis de mesa" class="hero-img">
+    <!-- HERO SECTION (INICIO) -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Domina la<br>Mesa</h1>
+            <p>Reflejos al límite, velocidad explosiva y precisión absoluta. Descubre a las leyendas del tenis de mesa y encuentra el equipamiento definitivo para llevar tu juego al siguiente nivel.</p>
+            <a href="#productos" class="btn">Ver Equipamiento</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE EXPONENTES -->
+    <section id="exponentes">
+        <div class="section-header reveal">
+            <h2>Leyendas Inmortales</h2>
+            <p>Conoce a los titanes que redefinieron lo que es humanamente posible dentro de una cancha de tenis de mesa.</p>
+        </div>
+
+        <div class="players-grid">
+            <!-- Carta 1 -->
+            <div class="player-card reveal">
+                <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?q=80&w=2099&auto=format&fit=crop" alt="Jugador de Tenis de Mesa" class="player-img">
+                <div class="player-info">
+                    <span class="country">China</span>
+                    <h3>Ma Long</h3>
+                    <p>El "Dictador". Considerado el mejor de todos los tiempos. Primer jugador en completar el "Doble Grand Slam". Su consistencia y poder de derecha no tienen igual en la historia del deporte.</p>
+                </div>
+            </div>
+
+            <!-- Carta 2 -->
+            <div class="player-card reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1579207869677-4df3b8f6ebc9?q=80&w=1964&auto=format&fit=crop" alt="Pelota de Tenis de Mesa" class="player-img">
+                <div class="player-info">
+                    <span class="country">Suecia</span>
+                    <h3>Jan-Ove Waldner</h3>
+                    <p>El "Mozart del Tenis de Mesa". Famoso por su estilo creativo, bloques mágicos y por ser el gran obstáculo europeo contra el dominio asiático absoluto durante los años 90.</p>
+                </div>
+            </div>
+
+            <!-- Carta 3 -->
+            <div class="player-card reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1629559384351-87a4de339463?q=80&w=1974&auto=format&fit=crop" alt="Raqueta de Tenis de Mesa" class="player-img">
+                <div class="player-info">
+                    <span class="country">China</span>
+                    <h3>Zhang Jike</h3>
+                    <p>El jugador más explosivo de su generación. Logró el Grand Slam en un récord de 445 días y revolucionó la técnica moderna con su agresivo y letal "banana flick" de revés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section id="productos">
+        <div class="section-header reveal">
+            <h2>Arsenal Competitivo</h2>
+            <p>El talento requiere las herramientas correctas. Selección de equipo equilibrado para forjar tu técnica y dominar los efectos.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Producto 1 -->
+            <div class="product-card reveal">
+                <div class="product-icon">M</div>
+                <h3>Stiga Allround Classic</h3>
+                <p>La madera legendaria. Ofrece un control absoluto de la bola sin perder sensibilidad. El estándar de oro para desarrollar una técnica impecable desde cero.</p>
+                <div class="price-tag">$35 - $45 USD</div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card reveal" style="transition-delay: 0.1s;">
+                <div class="product-icon">G</div>
+                <h3>Gomas Clásicas</h3>
+                <p>Yasaka Mark V o Butterfly Sriver. Gomas duraderas que equilibran efecto y velocidad, perdonando errores técnicos y obligándote a generar tu propia fuerza.</p>
+                <div class="price-tag">$35 - $40 USD c/u</div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card reveal" style="transition-delay: 0.2s;">
+                <div class="product-icon">P</div>
+                <h3>Nittaku Premium 40+</h3>
+                <p>El estándar profesional. Pelotas japonesas de plástico ABS de 3 estrellas. Perfectamente esféricas, duraderas y con el rebote más consistente del mercado global.</p>
+                <div class="price-tag">$8 - $12 USD (x3)</div>
+            </div>
             
-            <p class="intro-text">El tenis de mesa es un deporte que requiere reflejos rápidos, excelente coordinación y el equipamiento adecuado para maximizar tu rendimiento. En esta página encontrarás información básica sobre las leyendas de este deporte y una guía práctica para adquirir tus primeros productos de calidad.</p>
-        </section>
-
-        <!-- SECCIÓN DE EXPONENTES -->
-        <section id="exponentes">
-            <h2>Mayores Exponentes de la Historia</h2>
-            <p style="margin-bottom: 25px; color: #555;">Conoce a algunos de los jugadores que han definido el tenis de mesa a nivel competitivo:</p>
-
-            <div class="card">
-                <img src="https://placehold.co/200x200/cccccc/333333?text=Foto+Ma+Long" alt="Ma Long" class="card-img">
-                <div class="card-content">
-                    <h3>Ma Long (China)</h3>
-                    <p>Ampliamente considerado como el mejor jugador de todos los tiempos. Es el primer jugador masculino en completar un "Doble Grand Slam" (ganar los Juegos Olímpicos, el Campeonato Mundial y la Copa del Mundo en dos ocasiones). Destaca por su derecha letal y su consistencia inquebrantable.</p>
-                </div>
+            <!-- Producto 4 -->
+            <div class="product-card reveal" style="transition-delay: 0.3s;">
+                <div class="product-icon">R</div>
+                <h3>Palio Expert 2</h3>
+                <p>¿Buscas una solución lista para jugar? Raqueta preensamblada con maderas y gomas oficiales aprobadas por la ITTF. Infinitamente superior a cualquier raqueta de supermercado.</p>
+                <div class="price-tag">$40 - $50 USD</div>
             </div>
+        </div>
+    </section>
 
-            <div class="card">
-                <img src="https://placehold.co/200x200/cccccc/333333?text=Foto+Waldner" alt="Jan-Ove Waldner" class="card-img">
-                <div class="card-content">
-                    <h3>Jan-Ove Waldner (Suecia)</h3>
-                    <p>Conocido como el "Mozart del Tenis de Mesa". Waldner es famoso por su estilo de juego creativo, su anticipación casi mágica y por ser uno de los pocos jugadores no asiáticos en dominar el deporte durante los años 90.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://placehold.co/200x200/cccccc/333333?text=Foto+Zhang+Jike" alt="Zhang Jike" class="card-img">
-                <div class="card-content">
-                    <h3>Zhang Jike (China)</h3>
-                    <p>Uno de los jugadores más explosivos y carismáticos. Logró el Grand Slam en un tiempo récord de solo 445 días. Revolucionó el deporte con su técnica de revés, especialmente el "banana flick" sobre la mesa.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN DE PRODUCTOS -->
-        <section id="productos">
-            <h2>Recomendaciones de Productos</h2>
-            <p style="margin-bottom: 25px; color: #555;">Seleccionar el material adecuado es crucial. Aquí tienes algunas recomendaciones equilibradas para jugadores de nivel intermedio:</p>
-
-            <div class="card">
-                <!-- Usamos la clase 'product-img' para que sea cuadrada y no redonda -->
-                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Madera+Stiga" alt="Madera Stiga" class="card-img product-img">
-                <div class="card-content">
-                    <h3>Madera: Stiga Allround Classic</h3>
-                    <p>Una de las maderas más vendidas de la historia. Es perfecta para desarrollar técnica porque ofrece un control excepcional sin sacrificar demasiada velocidad. Ideal para aprender a sentir la pelota.</p>
-                    <span class="price">$35 - $45 USD</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Gomas+Yasaka" alt="Gomas Yasaka" class="card-img product-img">
-                <div class="card-content">
-                    <h3>Gomas: Yasaka Mark V / Butterfly Sriver</h3>
-                    <p>Estas gomas son clásicos absolutos. Son muy duraderas, ofrecen un equilibrio perfecto entre efecto y velocidad, y no son tan reactivas como las gomas modernas, lo que perdona muchos errores técnicos.</p>
-                    <span class="price">$35 - $40 USD c/u</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Pelotas+Nittaku" alt="Pelotas Nittaku" class="card-img product-img">
-                <div class="card-content">
-                    <h3>Pelotas: Nittaku Premium 40+</h3>
-                    <p>Fabricadas en Japón, son consideradas por la mayoría de los profesionales como las mejores pelotas del mercado actual (plástico ABS). Son perfectamente redondas, duraderas y ofrecen un rebote muy consistente.</p>
-                    <span class="price">$8 - $12 USD (pack 3)</span>
-                </div>
-            </div>
-            
-            <div class="card">
-                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Raqueta+Palio" alt="Raqueta Palio" class="card-img product-img">
-                <div class="card-content">
-                    <h3>Raqueta Preensamblada: Palio Expert 2</h3>
-                    <p>Si prefieres no armar tu propia raqueta, esta es la mejor opción para principiantes serios. Viene con maderas y gomas de calidad aprobadas por la ITTF que superan con creces a cualquier raqueta de supermercado.</p>
-                    <span class="price">$40 - $50 USD</span>
-                </div>
-            </div>
-        </section>
-    </main>
-
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Guía Básica de Tenis de Mesa. Creado con pasión por el deporte.</p>
+        <div class="footer-logo">TT<span>Pro</span></div>
+        <p class="footer-text">Elevando el estándar del Tenis de Mesa.<br>Construido con pasión y precisión.</p>
+        <p class="copyright">&copy; 2026 TT Pro Series. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- SCRIPT PARA ANIMACIONES AL HACER SCROLL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Selecciona todos los elementos con la clase 'reveal'
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100; // Píxeles de margen antes de animar
+
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    // Si el elemento está dentro del área visible de la ventana, añade la clase active
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            // Escuchar el evento de scroll
+            window.addEventListener('scroll', revealOnScroll);
+            // Ejecutar una vez al cargar por si hay elementos ya visibles
+            revealOnScroll();
+        });
+    </script>
 </body>
 </html>
