@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenis de Mesa | Productos y Exponentes</title>
     <style>
-        /* Estilos generales - Diseño minimalista y poco llamativo */
+        /* Paleta de colores:
+           Fondo: #f0f4f8 (Gris azulado muy claro)
+           Principal: #0A2540 (Azul oscuro profundo)
+           Acento: #E63946 (Rojo dinámico)
+           Texto: #333333
+        */
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #f0f4f8;
             color: #333333;
             margin: 0;
             padding: 0;
@@ -17,25 +23,27 @@
 
         /* Encabezado y navegación */
         header {
-            background-color: #ffffff;
+            background-color: #0A2540;
             padding: 20px 0;
-            border-bottom: 1px solid #e0e0e0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
             padding: 0 20px;
         }
 
         h1 {
-            margin: 0 0 10px 0;
-            color: #222222;
-            font-size: 24px;
+            margin: 0 0 15px 0;
+            color: #ffffff;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav ul {
@@ -44,93 +52,154 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         nav a {
             text-decoration: none;
-            color: #555555;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.2s;
+            color: #a8b2d1;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding-bottom: 5px;
         }
 
         nav a:hover {
-            color: #000000;
-            text-decoration: underline;
+            color: #ffffff;
+            border-bottom: 3px solid #E63946;
         }
 
         /* Contenedor principal */
         main {
-            max-width: 800px;
-            margin: 30px auto;
+            max-width: 900px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
         /* Secciones */
         section {
             background-color: #ffffff;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-            /* Compensación para el menú fijo al navegar */
-            scroll-margin-top: 90px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            scroll-margin-top: 110px; /* Compensa la altura del header fijo */
         }
 
         h2 {
-            border-bottom: 1px solid #eeeeee;
-            padding-bottom: 10px;
+            color: #0A2540;
+            font-size: 26px;
             margin-top: 0;
-            color: #444444;
-            font-size: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #E63946;
+            display: inline-block;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Imagen destacada de la sección de inicio */
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         /* Tarjetas de contenido (Jugadores y Productos) */
         .card {
+            display: flex;
             background-color: #fafafa;
-            border: 1px solid #eeeeee;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            border-radius: 4px;
+            border-left: 5px solid #0A2540;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateX(5px);
+            border-left-color: #E63946;
+        }
+
+        /* Imágenes dentro de las tarjetas */
+        .card-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%; /* Imágenes redondas para los jugadores */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0; /* Evita que la imagen se deforme */
+        }
+
+        .product-img {
+            border-radius: 8px; /* Imágenes cuadradas para productos */
+        }
+
+        .card-content {
+            flex-grow: 1;
         }
 
         .card h3 {
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 17px;
-            color: #333333;
+            font-size: 20px;
+            color: #0A2540;
         }
 
         .card p {
             margin: 0;
-            font-size: 14px;
+            font-size: 15px;
             color: #555555;
         }
 
         .price {
             display: inline-block;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #444444;
-            font-size: 14px;
+            margin-top: 12px;
+            font-weight: 700;
+            color: #E63946;
+            font-size: 16px;
+            background-color: #ffe8ea;
+            padding: 5px 12px;
+            border-radius: 20px;
         }
 
         /* Pie de página */
         footer {
+            background-color: #0A2540;
             text-align: center;
-            padding: 20px;
-            color: #777777;
-            font-size: 13px;
-            margin-top: 40px;
-            border-top: 1px solid #e0e0e0;
+            padding: 30px 20px;
+            color: #a8b2d1;
+            font-size: 14px;
+            margin-top: 60px;
         }
 
         /* Adaptabilidad para móviles */
         @media (max-width: 600px) {
             nav ul {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
+            }
+            
+            .card {
+                flex-direction: column;
+                text-align: center;
+                border-left: none;
+                border-top: 5px solid #0A2540;
+                border-radius: 0 0 8px 8px;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                border-top-color: #E63946;
             }
         }
     </style>
@@ -154,63 +223,88 @@
         <!-- SECCIÓN DE INICIO -->
         <section id="inicio">
             <h2>Bienvenido</h2>
-            <p>El tenis de mesa es un deporte que requiere reflejos rápidos, excelente coordinación y el equipamiento adecuado para maximizar tu rendimiento. En esta página encontrarás información básica sobre las leyendas de este deporte y una guía práctica para adquirir tus primeros productos de calidad.</p>
+            <!-- Imagen destacada -->
+            <img src="https://placehold.co/900x400/0A2540/FFFFFF?text=Imagen+Destacada+Tenis+de+Mesa" alt="Mesa de tenis de mesa" class="hero-img">
+            
+            <p class="intro-text">El tenis de mesa es un deporte que requiere reflejos rápidos, excelente coordinación y el equipamiento adecuado para maximizar tu rendimiento. En esta página encontrarás información básica sobre las leyendas de este deporte y una guía práctica para adquirir tus primeros productos de calidad.</p>
         </section>
 
         <!-- SECCIÓN DE EXPONENTES -->
         <section id="exponentes">
             <h2>Mayores Exponentes de la Historia</h2>
-            <p>Conoce a algunos de los jugadores que han definido el tenis de mesa a nivel competitivo:</p>
+            <p style="margin-bottom: 25px; color: #555;">Conoce a algunos de los jugadores que han definido el tenis de mesa a nivel competitivo:</p>
 
             <div class="card">
-                <h3>Ma Long (China)</h3>
-                <p>Ampliamente considerado como el mejor jugador de todos los tiempos. Es el primer jugador masculino en completar un "Doble Grand Slam" (ganar los Juegos Olímpicos, el Campeonato Mundial y la Copa del Mundo en dos ocasiones). Destaca por su derecha letal y su consistencia inquebrantable.</p>
+                <img src="https://placehold.co/200x200/cccccc/333333?text=Foto+Ma+Long" alt="Ma Long" class="card-img">
+                <div class="card-content">
+                    <h3>Ma Long (China)</h3>
+                    <p>Ampliamente considerado como el mejor jugador de todos los tiempos. Es el primer jugador masculino en completar un "Doble Grand Slam" (ganar los Juegos Olímpicos, el Campeonato Mundial y la Copa del Mundo en dos ocasiones). Destaca por su derecha letal y su consistencia inquebrantable.</p>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Jan-Ove Waldner (Suecia)</h3>
-                <p>Conocido como el "Mozart del Tenis de Mesa". Waldner es famoso por su estilo de juego creativo, su anticipación casi mágica y por ser uno de los pocos jugadores no asiáticos en dominar el deporte durante los años 90.</p>
+                <img src="https://placehold.co/200x200/cccccc/333333?text=Foto+Waldner" alt="Jan-Ove Waldner" class="card-img">
+                <div class="card-content">
+                    <h3>Jan-Ove Waldner (Suecia)</h3>
+                    <p>Conocido como el "Mozart del Tenis de Mesa". Waldner es famoso por su estilo de juego creativo, su anticipación casi mágica y por ser uno de los pocos jugadores no asiáticos en dominar el deporte durante los años 90.</p>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Zhang Jike (China)</h3>
-                <p>Uno de los jugadores más explosivos y carismáticos. Logró el Grand Slam en un tiempo récord de solo 445 días. Revolucionó el deporte con su técnica de revés, especialmente el "banana flick" sobre la mesa.</p>
+                <img src="https://placehold.co/200x200/cccccc/333333?text=Foto+Zhang+Jike" alt="Zhang Jike" class="card-img">
+                <div class="card-content">
+                    <h3>Zhang Jike (China)</h3>
+                    <p>Uno de los jugadores más explosivos y carismáticos. Logró el Grand Slam en un tiempo récord de solo 445 días. Revolucionó el deporte con su técnica de revés, especialmente el "banana flick" sobre la mesa.</p>
+                </div>
             </div>
         </section>
 
         <!-- SECCIÓN DE PRODUCTOS -->
         <section id="productos">
             <h2>Recomendaciones de Productos</h2>
-            <p>Seleccionar el material adecuado es crucial. Aquí tienes algunas recomendaciones equilibradas para jugadores de nivel intermedio:</p>
+            <p style="margin-bottom: 25px; color: #555;">Seleccionar el material adecuado es crucial. Aquí tienes algunas recomendaciones equilibradas para jugadores de nivel intermedio:</p>
 
             <div class="card">
-                <h3>Madera: Stiga Allround Classic</h3>
-                <p>Una de las maderas más vendidas de la historia. Es perfecta para desarrollar técnica porque ofrece un control excepcional sin sacrificar demasiada velocidad. Ideal para aprender a sentir la pelota.</p>
-                <span class="price">Rango de precio: $35 - $45 USD</span>
+                <!-- Usamos la clase 'product-img' para que sea cuadrada y no redonda -->
+                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Madera+Stiga" alt="Madera Stiga" class="card-img product-img">
+                <div class="card-content">
+                    <h3>Madera: Stiga Allround Classic</h3>
+                    <p>Una de las maderas más vendidas de la historia. Es perfecta para desarrollar técnica porque ofrece un control excepcional sin sacrificar demasiada velocidad. Ideal para aprender a sentir la pelota.</p>
+                    <span class="price">$35 - $45 USD</span>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Gomas: Yasaka Mark V / Butterfly Sriver</h3>
-                <p>Estas gomas son clásicos absolutos. Son muy duraderas, ofrecen un equilibrio perfecto entre efecto y velocidad, y no son tan reactivas como las gomas modernas, lo que perdona muchos errores técnicos.</p>
-                <span class="price">Rango de precio: $35 - $40 USD (por cada goma)</span>
+                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Gomas+Yasaka" alt="Gomas Yasaka" class="card-img product-img">
+                <div class="card-content">
+                    <h3>Gomas: Yasaka Mark V / Butterfly Sriver</h3>
+                    <p>Estas gomas son clásicos absolutos. Son muy duraderas, ofrecen un equilibrio perfecto entre efecto y velocidad, y no son tan reactivas como las gomas modernas, lo que perdona muchos errores técnicos.</p>
+                    <span class="price">$35 - $40 USD c/u</span>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Pelotas: Nittaku Premium 40+ (3 Estrellas)</h3>
-                <p>Fabricadas en Japón, son consideradas por la mayoría de los profesionales como las mejores pelotas del mercado actual (plástico ABS). Son perfectamente redondas, duraderas y ofrecen un rebote muy consistente.</p>
-                <span class="price">Rango de precio: $8 - $12 USD (pack de 3)</span>
+                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Pelotas+Nittaku" alt="Pelotas Nittaku" class="card-img product-img">
+                <div class="card-content">
+                    <h3>Pelotas: Nittaku Premium 40+</h3>
+                    <p>Fabricadas en Japón, son consideradas por la mayoría de los profesionales como las mejores pelotas del mercado actual (plástico ABS). Son perfectamente redondas, duraderas y ofrecen un rebote muy consistente.</p>
+                    <span class="price">$8 - $12 USD (pack 3)</span>
+                </div>
             </div>
             
             <div class="card">
-                <h3>Raqueta Preensamblada: Palio Expert 2</h3>
-                <p>Si prefieres no armar tu propia raqueta, esta es la mejor opción para principiantes serios. Viene con maderas y gomas de calidad aprobadas por la ITTF que superan con creces a cualquier raqueta de supermercado.</p>
-                <span class="price">Rango de precio: $40 - $50 USD</span>
+                <img src="https://placehold.co/200x200/E63946/FFFFFF?text=Raqueta+Palio" alt="Raqueta Palio" class="card-img product-img">
+                <div class="card-content">
+                    <h3>Raqueta Preensamblada: Palio Expert 2</h3>
+                    <p>Si prefieres no armar tu propia raqueta, esta es la mejor opción para principiantes serios. Viene con maderas y gomas de calidad aprobadas por la ITTF que superan con creces a cualquier raqueta de supermercado.</p>
+                    <span class="price">$40 - $50 USD</span>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Guía Básica de Tenis de Mesa. Diseñado con fines informativos.</p>
+        <p>&copy; 2026 Guía Básica de Tenis de Mesa. Creado con pasión por el deporte.</p>
     </footer>
 
 </body>
