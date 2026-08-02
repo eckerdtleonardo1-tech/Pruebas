@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenis de Mesa | Productos y Exponentes</title>
+    <style>
+        /* Estilos generales - Diseño minimalista y poco llamativo */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Encabezado y navegación */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            color: #222222;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        /* Contenedor principal */
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Secciones */
+        section {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            /* Compensación para el menú fijo al navegar */
+            scroll-margin-top: 90px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #444444;
+            font-size: 20px;
+        }
+
+        /* Tarjetas de contenido (Jugadores y Productos) */
+        .card {
+            background-color: #fafafa;
+            border: 1px solid #eeeeee;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 17px;
+            color: #333333;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .price {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #444444;
+            font-size: 14px;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777777;
+            font-size: 13px;
+            margin-top: 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Adaptabilidad para móviles */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Pasión por el Tenis de Mesa</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#exponentes">Mayores Exponentes</a></li>
+                    <li><a href="#productos">Recomendaciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN DE INICIO -->
+        <section id="inicio">
+            <h2>Bienvenido</h2>
+            <p>El tenis de mesa es un deporte que requiere reflejos rápidos, excelente coordinación y el equipamiento adecuado para maximizar tu rendimiento. En esta página encontrarás información básica sobre las leyendas de este deporte y una guía práctica para adquirir tus primeros productos de calidad.</p>
+        </section>
+
+        <!-- SECCIÓN DE EXPONENTES -->
+        <section id="exponentes">
+            <h2>Mayores Exponentes de la Historia</h2>
+            <p>Conoce a algunos de los jugadores que han definido el tenis de mesa a nivel competitivo:</p>
+
+            <div class="card">
+                <h3>Ma Long (China)</h3>
+                <p>Ampliamente considerado como el mejor jugador de todos los tiempos. Es el primer jugador masculino en completar un "Doble Grand Slam" (ganar los Juegos Olímpicos, el Campeonato Mundial y la Copa del Mundo en dos ocasiones). Destaca por su derecha letal y su consistencia inquebrantable.</p>
+            </div>
+
+            <div class="card">
+                <h3>Jan-Ove Waldner (Suecia)</h3>
+                <p>Conocido como el "Mozart del Tenis de Mesa". Waldner es famoso por su estilo de juego creativo, su anticipación casi mágica y por ser uno de los pocos jugadores no asiáticos en dominar el deporte durante los años 90.</p>
+            </div>
+
+            <div class="card">
+                <h3>Zhang Jike (China)</h3>
+                <p>Uno de los jugadores más explosivos y carismáticos. Logró el Grand Slam en un tiempo récord de solo 445 días. Revolucionó el deporte con su técnica de revés, especialmente el "banana flick" sobre la mesa.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE PRODUCTOS -->
+        <section id="productos">
+            <h2>Recomendaciones de Productos</h2>
+            <p>Seleccionar el material adecuado es crucial. Aquí tienes algunas recomendaciones equilibradas para jugadores de nivel intermedio:</p>
+
+            <div class="card">
+                <h3>Madera: Stiga Allround Classic</h3>
+                <p>Una de las maderas más vendidas de la historia. Es perfecta para desarrollar técnica porque ofrece un control excepcional sin sacrificar demasiada velocidad. Ideal para aprender a sentir la pelota.</p>
+                <span class="price">Rango de precio: $35 - $45 USD</span>
+            </div>
+
+            <div class="card">
+                <h3>Gomas: Yasaka Mark V / Butterfly Sriver</h3>
+                <p>Estas gomas son clásicos absolutos. Son muy duraderas, ofrecen un equilibrio perfecto entre efecto y velocidad, y no son tan reactivas como las gomas modernas, lo que perdona muchos errores técnicos.</p>
+                <span class="price">Rango de precio: $35 - $40 USD (por cada goma)</span>
+            </div>
+
+            <div class="card">
+                <h3>Pelotas: Nittaku Premium 40+ (3 Estrellas)</h3>
+                <p>Fabricadas en Japón, son consideradas por la mayoría de los profesionales como las mejores pelotas del mercado actual (plástico ABS). Son perfectamente redondas, duraderas y ofrecen un rebote muy consistente.</p>
+                <span class="price">Rango de precio: $8 - $12 USD (pack de 3)</span>
+            </div>
+            
+            <div class="card">
+                <h3>Raqueta Preensamblada: Palio Expert 2</h3>
+                <p>Si prefieres no armar tu propia raqueta, esta es la mejor opción para principiantes serios. Viene con maderas y gomas de calidad aprobadas por la ITTF que superan con creces a cualquier raqueta de supermercado.</p>
+                <span class="price">Rango de precio: $40 - $50 USD</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Guía Básica de Tenis de Mesa. Diseñado con fines informativos.</p>
+    </footer>
+
+</body>
+</html>
